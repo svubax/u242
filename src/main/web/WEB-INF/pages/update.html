@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+</head>
+<body>
+    <form th:method="PATCH" th:action="@{/admin/update}" th:object="${user}">
+        <label for="id">Id: </label>
+        <input id="id" th:field="*{id}" type="number" readonly/>
+        <br />
+        <label for="usernameUpdate">Edit Username: </label>
+        <br />
+        <input id="usernameUpdate" th:field="*{username}" type="text"/>
+        <br />
+        <label for="passwordUpdate">Edit Password: </label>
+        <br />
+        <input id="passwordUpdate" th:field="*{password}" type="text"/>
+        <br />
+        <label for="nameUpdate">Edit Name: </label>
+        <br />
+        <input id="nameUpdate" th:field="*{name}" type="text"/>
+        <br />
+        <label for="emailUpdate">Edit E-mail: </label>
+        <br />
+        <input id="emailUpdate" th:field="*{email}" type="email"/>
+        <br />
+        <label for="ageUpdate">Edit Age: </label>
+        <br />
+        <input id="ageUpdate" th:field="*{age}" type="number"/>
+        <br />
+        <label for="enabledUpdate">Is active: </label>
+        <br />
+        <input id="enabledUpdate" th:field="*{enabled}" type="checkbox" name="enabled"/>
+        <br/>
+        <label for="rolesUpdate">Edit Roles: </label>
+        <br/>
+            <input th:name="rolesUpdate" id="rolesUpdate" type="checkbox"
+               th:each="role : ${roles}"
+               th:text="${role.name}"
+               th:value="${role.name}"
+               th:checked="${user.roles.contains(role)}"/>
+        <br/>
+        <input type="submit" value="Update User!"/>
+    </form>
+    <br />
+    <br />
+    <form method="post" action="/logout">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
