@@ -12,10 +12,10 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 @Controller
-public class UserController {
+public class WebController {
     private final UserService userService;
     private final RoleService roleService;
-    public UserController(UserService userService, RoleService roleService) {
+    public WebController(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
     }

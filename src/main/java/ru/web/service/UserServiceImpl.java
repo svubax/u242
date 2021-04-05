@@ -1,5 +1,7 @@
 package ru.web.service;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.web.dao.UserDao;
 import ru.web.model.User;
@@ -36,6 +38,10 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public User getUser(String username) {
+        return userDao.getUser(username);
+    }
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userDao.getUser(username);
     }
 }
