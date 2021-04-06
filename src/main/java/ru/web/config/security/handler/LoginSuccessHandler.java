@@ -1,4 +1,4 @@
-package ru.web.config.handler;
+package ru.web.config.security.handler;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
